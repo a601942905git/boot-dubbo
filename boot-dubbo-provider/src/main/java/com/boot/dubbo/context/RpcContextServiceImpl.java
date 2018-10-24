@@ -10,7 +10,7 @@ import com.alibaba.dubbo.rpc.RpcContext;
  * @dateTime 2018/10/24 下午5:51
  */
 @Service
-public class RpcContextServiceImpl implements RpcContextService{
+public class RpcContextServiceImpl implements RpcContextService {
 
     @Override
     public void printRpcContextInfo() {

@@ -15,7 +15,7 @@ public class RpcContextConsumerService {
 
     @Reference
     private RpcContextService rpcContextService;
-
+    
     public void printRpcContextInfo() {
         RpcContext context = RpcContext.getContext();
 
