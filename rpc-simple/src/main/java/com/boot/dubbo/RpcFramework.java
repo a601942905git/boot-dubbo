@@ -45,7 +45,7 @@ public class RpcFramework {
                             Object result = method.invoke(service, arguments);
                             System.out.println("调用" + service.getClass().getName() + "的" + methodName + "方法，返回结果：" + result);
                             objectOutputStream.writeObject(result);
-                        } catch (InvocationTargetException e) {
+                        } catch (Throwable e) {
                             objectOutputStream.writeObject(e);
                         } finally {
                             objectOutputStream.close();
@@ -95,6 +95,9 @@ public class RpcFramework {
                     ObjectInputStream objectInputStream = new ObjectInputStream(socket.getInputStream());
                     try {
                         Object result = objectInputStream.readObject();
+                        if (result instanceof Throwable) {
+                            throw (Throwable) result;
+                        }
                         return result;
                     } finally {
                         objectInputStream.close();
