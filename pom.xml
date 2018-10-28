@@ -12,6 +12,7 @@
         <module>boot-dubbo-provider</module>
         <module>boot-dubbo-consumer</module>
         <module>boot-dubbo-generic-reference</module>
+        <module>rpc-simple</module>
     </modules>
     <packaging>pom</packaging>
 
