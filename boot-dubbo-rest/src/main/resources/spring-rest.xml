@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:dubbo="http://dubbo.apache.org/schema/dubbo"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+       http://dubbo.apache.org/schema/dubbo
+       http://dubbo.apache.org/schema/dubbo/dubbo.xsd">
+
+    <dubbo:application name="dubbo-rest"/>
+
+    <dubbo:registry address="zookeeper://127.0.0.1:2181"/>
+
+    <!-- 用rest协议在8080端口暴露服务 -->
+    <dubbo:protocol name="rest" port="8081" server="tomcat"/>
+
+    <!-- 声明需要暴露的服务接口 -->
+    <dubbo:service interface="com.boot.dubbo.CustomerService" ref="customerService"/>
+
+    <!-- 和本地bean一样实现服务 -->
+    <bean id="customerService" class="com.boot.dubbo.CustomerServiceImpl" />
+</beans>

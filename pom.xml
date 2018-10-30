@@ -13,6 +13,7 @@
         <module>boot-dubbo-consumer</module>
         <module>boot-dubbo-generic-reference</module>
         <module>rpc-simple</module>
+        <module>boot-dubbo-rest</module>
     </modules>
     <packaging>pom</packaging>
 
@@ -28,6 +29,9 @@
         <validation.api.version>2.0.1.Final</validation.api.version>
         <hibernate.validator.version>5.1.0.Final</hibernate.validator.version>
         <lombok.version>1.16.18</lombok.version>
+        <resteasy.version>3.1.4.Final</resteasy.version>
+        <resteasy.client.version>3.1.4.Final</resteasy.client.version>
+        <resteasy.jackson.version>3.1.4.Final</resteasy.jackson.version>
     </properties>
 
     <dependencyManagement>
@@ -76,12 +80,29 @@
                 <version>${hibernate.validator.version}</version>
             </dependency>
 
-            <!-- https://mvnrepository.com/artifact/org.projectlombok/lombok -->
             <dependency>
                 <groupId>org.projectlombok</groupId>
                 <artifactId>lombok</artifactId>
                 <version>${lombok.version}</version>
                 <scope>provided</scope>
+            </dependency>
+
+            <dependency>
+                <groupId>org.jboss.resteasy</groupId>
+                <artifactId>resteasy-jaxrs</artifactId>
+                <version>${resteasy.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.jboss.resteasy</groupId>
+                <artifactId>resteasy-jackson-provider</artifactId>
+                <version>${resteasy.jackson.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.jboss.resteasy</groupId>
+                <artifactId>resteasy-client</artifactId>
+                <version>${resteasy.client.version}</version>
             </dependency>
 
         </dependencies>
