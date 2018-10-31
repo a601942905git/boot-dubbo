@@ -14,6 +14,10 @@ SpringBoot结合Dubbo的学习示例
                     |- HelloService     基础服务接口
                     |- callback         参数回调示例（服务器端调用客户端）
                     |- event            事件通知示例（客户端调用服务端方法前、后、异常处理）
+                    |- mock             本地伪装示例
+                    |- stub             本地存根示例
+                    |- token            令牌验证
+                   
                     
     |- boot-dubbo-consumer              服务消费者
         |- com
@@ -26,6 +30,10 @@ SpringBoot结合Dubbo的学习示例
                     |- async            异步调用示例
                     |- callback         参数回调示例（服务器端调用客户端）                    
                     |- event            事件通知示例（客户端调用服务端方法前、后、异常处理）
+                    |- mock             本地伪装示例
+                    |- stub             本地存根示例
+                    |- token            令牌验证
+                   
                     
     |- boot-dubbo-generic-reference     验证泛化调用特性
     
@@ -38,6 +46,12 @@ SpringBoot结合Dubbo的学习示例
                     |- async             异步调用示例
                     |- callback          参数回调示例（服务器端调用客户端）
                     |- event            事件通知示例（客户端调用服务端方法前、后、异常处理）
+                    |- mock             本地伪装示例
+                    |- stub             本地存根示例
+                    |- token            令牌验证
+                   
+    |- boot-dubbo-rest                  实现rest调用
+    
 ```
 
 ### 关于rpc-simple模块描述
@@ -56,3 +70,49 @@ SpringBoot结合Dubbo的学习示例
     - 写入要调用的方法名、方法参数类型、方法参数
     - 获取ObjectInputStream
     - 获取返回结果
+
+### 注意事项
+- rest协议调用
+    - 一定要添加注册中心
+    ```
+    @Bean
+    public RegistryConfig registryConfig() {
+      RegistryConfig registryConfig = new RegistryConfig();
+      registryConfig.setAddress("N/A");
+      return registryConfig;
+    }
+    ```
+    - 内置服务器为Tomcat
+    ```
+    // 配置使用的內置服务
+    protocolConfig.setServer("tomcat");
+    ```
+    - 添加依赖
+    ```
+    <dependency>
+        <groupId>org.jboss.resteasy</groupId>
+        <artifactId>resteasy-jaxrs</artifactId>
+    </dependency>
+    
+    <dependency>
+        <groupId>org.jboss.resteasy</groupId>
+        <artifactId>resteasy-jackson-provider</artifactId>
+    </dependency>
+    
+    <dependency>
+        <groupId>org.jboss.resteasy</groupId>
+        <artifactId>resteasy-jaxb-provider</artifactId>
+    </dependency>
+    
+    <dependency>
+        <groupId>org.jboss.resteasy</groupId>
+        <artifactId>resteasy-client</artifactId>
+    </dependency>
+    ```
+- telnet使用
+```
+telnet localhost 20880,然后一定要敲下回车，打开世界的大门
+```
+- Qos使用
+    - 添加Netty4的依赖
+    - 添加Apache Commons Lang3依赖
