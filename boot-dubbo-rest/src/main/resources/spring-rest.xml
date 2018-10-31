@@ -9,7 +9,7 @@
 
     <dubbo:application name="dubbo-rest"/>
 
-    <dubbo:registry address="zookeeper://127.0.0.1:2181"/>
+    <dubbo:registry address="N/A"/>
 
     <!-- 用rest协议在8080端口暴露服务 -->
     <dubbo:protocol name="rest" port="8081" server="tomcat"/>

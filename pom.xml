@@ -32,6 +32,10 @@
         <resteasy.version>3.1.4.Final</resteasy.version>
         <resteasy.client.version>3.1.4.Final</resteasy.client.version>
         <resteasy.jackson.version>3.1.4.Final</resteasy.jackson.version>
+        <resteasy.xml.version>3.1.4.Final</resteasy.xml.version>
+        <fastjson.version>1.2.47</fastjson.version>
+        <netty.version>4.1.24.Final</netty.version>
+        <apache.common.lang3.version>3.7</apache.common.lang3.version>
     </properties>
 
     <dependencyManagement>
@@ -103,6 +107,30 @@
                 <groupId>org.jboss.resteasy</groupId>
                 <artifactId>resteasy-client</artifactId>
                 <version>${resteasy.client.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.jboss.resteasy</groupId>
+                <artifactId>resteasy-jaxb-provider</artifactId>
+                <version>${resteasy.xml.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>fastjson</artifactId>
+                <version>${fastjson.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>io.netty</groupId>
+                <artifactId>netty-all</artifactId>
+                <version>${netty.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.apache.commons</groupId>
+                <artifactId>commons-lang3</artifactId>
+                <version>${apache.common.lang3.version}</version>
             </dependency>
 
         </dependencies>

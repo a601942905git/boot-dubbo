@@ -2,6 +2,8 @@ package com.boot.dubbo.response;
 
 import lombok.*;
 
+import javax.xml.bind.annotation.XmlRootElement;
+
 /**
  * com.boot.dubbo.response.BaseResponse
  *
@@ -13,6 +15,7 @@ import lombok.*;
 @AllArgsConstructor
 @Builder
 @ToString
+@XmlRootElement
 public class BaseResponse<T> {
 
     private String code;

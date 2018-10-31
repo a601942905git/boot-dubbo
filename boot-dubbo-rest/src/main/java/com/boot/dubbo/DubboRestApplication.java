@@ -1,8 +1,8 @@
 package com.boot.dubbo;
 
+import com.alibaba.dubbo.config.spring.context.annotation.DubboComponentScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.context.annotation.ImportResource;
 
 /**
  * com.boot.dubbo.DubboRestApplicaton
@@ -11,7 +11,7 @@ import org.springframework.context.annotation.ImportResource;
  * @dateTime 2018/10/29 下午10:43
  */
 @SpringBootApplication
-@ImportResource(locations = {"classpath:spring-rest.xml"})
+@DubboComponentScan(basePackages = {"com.boot.dubbo"})
 public class DubboRestApplication {
 
     public static void main(String[] args) {

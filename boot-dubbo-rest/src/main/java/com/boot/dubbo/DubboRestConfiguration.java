@@ -1,31 +1,35 @@
 package com.boot.dubbo;
 
 import com.alibaba.dubbo.config.ApplicationConfig;
+import com.alibaba.dubbo.config.ProtocolConfig;
 import com.alibaba.dubbo.config.RegistryConfig;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-/**
- * com.boot.dubbo.DubboProviderConfiguration
- *
- * @author lipeng
- * @dateTime 2018/10/18 上午9:12
- */
 @Configuration
-public class DubboProviderConfiguration {
+public class DubboRestConfiguration {
 
     @Bean
     public ApplicationConfig applicationConfig() {
         ApplicationConfig applicationConfig = new ApplicationConfig();
-        applicationConfig.setName("provider-test");
+        applicationConfig.setName("dubbo-rest");
         return applicationConfig;
+    }
+
+    @Bean
+    public ProtocolConfig protocolConfig() {
+        ProtocolConfig protocolConfig = new ProtocolConfig();
+        protocolConfig.setName("rest");
+        protocolConfig.setPort(8081);
+        // 配置使用的內置服务
+        protocolConfig.setServer("tomcat");
+        return protocolConfig;
     }
 
     @Bean
     public RegistryConfig registryConfig() {
         RegistryConfig registryConfig = new RegistryConfig();
-        registryConfig.setAddress("zookeeper://127.0.0.1:2181");
-        registryConfig.setClient("curator");
+        registryConfig.setAddress("N/A");
         return registryConfig;
     }
 }

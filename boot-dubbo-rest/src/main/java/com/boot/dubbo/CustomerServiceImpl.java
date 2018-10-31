@@ -1,10 +1,14 @@
 package com.boot.dubbo;
 
+import com.alibaba.dubbo.config.annotation.Service;
+import com.alibaba.dubbo.rpc.RpcContext;
 import com.alibaba.dubbo.rpc.protocol.rest.support.ContentType;
 import com.boot.dubbo.response.BaseResponse;
 import com.boot.dubbo.response.CustomerListResponse;
 import com.boot.dubbo.response.CustomerResponse;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.ws.rs.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -18,7 +22,8 @@ import java.util.Optional;
  * @dateTime 2018/10/29 下午7:55
  */
 @Path("customers")
-@Produces(ContentType.APPLICATION_JSON_UTF_8)
+@Produces({ContentType.APPLICATION_JSON_UTF_8, ContentType.TEXT_XML_UTF_8})
+@Service()
 public class CustomerServiceImpl implements CustomerService {
     static List<Customer> customerList = new ArrayList<>();
 
@@ -34,8 +39,18 @@ public class CustomerServiceImpl implements CustomerService {
     @GET
     @Override
     public CustomerListResponse listCustomer() {
+        HttpServletRequest request = RpcContext.getContext().getRequest(HttpServletRequest.class);
+        HttpServletResponse response = RpcContext.getContext().getResponse(HttpServletResponse.class);
+        if (!Objects.isNull(request)) {
+            System.out.println("Client address is " + request.getRemoteAddr());
+        }
+
         CustomerListResponse customerListResponse = new CustomerListResponse();
         customerListResponse.setCustomerList(customerList);
+
+        if (!Objects.isNull(response)) {
+            System.out.println("Server response content " + customerListResponse);
+        }
         return customerListResponse;
     }
 
