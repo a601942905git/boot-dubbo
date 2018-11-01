@@ -18,6 +18,9 @@ public class DubboProviderConfiguration {
     public ApplicationConfig applicationConfig() {
         ApplicationConfig applicationConfig = new ApplicationConfig();
         applicationConfig.setName("provider-test");
+        applicationConfig.setQosAcceptForeignIp(false);
+        applicationConfig.setQosEnable(true);
+        applicationConfig.setQosPort(33333);
         return applicationConfig;
     }
 
