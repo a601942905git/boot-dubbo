@@ -118,3 +118,16 @@ telnet localhost 20880,然后一定要敲下回车，打开世界的大门
 - Qos使用
     - 添加Netty4的依赖
     - 添加Apache Commons Lang3依赖
+    ```
+    <dependency>
+        <groupId>io.netty</groupId>
+        <artifactId>netty-all</artifactId>
+        <version>4.1.24.Final</version>
+    </dependency>
+    
+    <dependency>
+        <groupId>org.apache.commons</groupId>
+        <artifactId>commons-lang3</artifactId>
+        <version>3.7</version>
+    </dependency>
+    ```
