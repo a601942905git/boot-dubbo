@@ -51,12 +51,14 @@ SpringBoot结合Dubbo的学习示例
                     |- token            令牌验证
                    
     |- boot-dubbo-rest                  实现rest调用
+    |- boot-dubbo-spi                   实现基于java的SPI
+    |- spring-custom-label              基于spring实现自定义标签
     
 ```
 
-### 关于rpc-simple模块描述
+# 关于rpc-simple模块描述
 该模块作为简单rpc实现，用于加深对rpc远程调用的理解
-#### rpc远程调用原理
+# rpc远程调用原理
 - 服务提供者
     - 开放一个端口，用来监听客户端连接
     - 获取ObjectInputStream
@@ -71,7 +73,7 @@ SpringBoot结合Dubbo的学习示例
     - 获取ObjectInputStream
     - 获取返回结果
 
-### 注意事项
+# Dubbo官网文档注意事项
 - rest协议调用
     - 一定要添加注册中心
     ```
