@@ -14,6 +14,7 @@
         <module>boot-dubbo-generic-reference</module>
         <module>rpc-simple</module>
         <module>boot-dubbo-rest</module>
+        <module>bood-dubbo-spi</module>
     </modules>
     <packaging>pom</packaging>
 
