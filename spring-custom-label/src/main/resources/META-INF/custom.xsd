@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<xsd:schema
+        xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+        xmlns="http://dubbo.apache.org/schema/custom" xmlns:tool="http://www.springframework.org/schema/tool"
+        targetNamespace="http://dubbo.apache.org/schema/custom" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.springframework.org/schema/tool http://www.springframework.org/schema/tool/spring-tool.xsd">
+
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace"/>
+    <xsd:import namespace="http://www.springframework.org/schema/beans" schemaLocation="http://www.springframework.org/schema/beans/spring-beans.xsd"/>
+    <xsd:import namespace="http://www.springframework.org/schema/tool"/>
+
+    <xsd:complexType name="personType">
+        <xsd:attribute name="id" type="xsd:string">
+            <xsd:annotation>
+                <xsd:documentation>
+                    <![CDATA[ The unique identifier for a bean. ]]>
+                </xsd:documentation>
+            </xsd:annotation>
+        </xsd:attribute>
+        <xsd:attribute name="name" type="xsd:string">
+            <xsd:annotation>
+                <xsd:documentation>
+                    <![CDATA[ The name for a bean. ]]>
+                </xsd:documentation>
+            </xsd:annotation>
+        </xsd:attribute>
+        <xsd:attribute name="age" type="xsd:integer">
+            <xsd:annotation>
+                <xsd:documentation>
+                    <![CDATA[ The age of the bean. ]]>
+                </xsd:documentation>
+            </xsd:annotation>
+        </xsd:attribute>
+    </xsd:complexType>
+
+    <xsd:complexType name="helloType">
+        <xsd:attribute name="id" type="xsd:string">
+            <xsd:annotation>
+                <xsd:documentation>
+                    <![CDATA[ The unique identifier for a bean. ]]>
+                </xsd:documentation>
+            </xsd:annotation>
+        </xsd:attribute>
+        <xsd:attribute name="name" type="xsd:string">
+            <xsd:annotation>
+                <xsd:documentation>
+                    <![CDATA[ The name for a bean. ]]>
+                </xsd:documentation>
+            </xsd:annotation>
+        </xsd:attribute>
+    </xsd:complexType>
+
+    <xsd:element name="person" type="personType">
+        <xsd:annotation>
+            <xsd:documentation><![CDATA[ custom person label ]]></xsd:documentation>
+            <xsd:appinfo>
+                <tool:annotation>
+                    <tool:exports type="com.boot.dubbo.Person"/>
+                </tool:annotation>
+            </xsd:appinfo>
+        </xsd:annotation>
+    </xsd:element>
+
+    <xsd:element name="hello" type="helloType">
+        <xsd:annotation>
+            <xsd:documentation><![CDATA[ customer hello label ]]></xsd:documentation>
+            <xsd:appinfo>
+                <tool:annotation>
+                    <tool:exports type="com.boot.dubbo.Hello"/>
+                </tool:annotation>
+            </xsd:appinfo>
+        </xsd:annotation>
+    </xsd:element>
+</xsd:schema>

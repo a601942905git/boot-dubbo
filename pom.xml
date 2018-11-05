@@ -15,6 +15,7 @@
         <module>rpc-simple</module>
         <module>boot-dubbo-rest</module>
         <module>bood-dubbo-spi</module>
+        <module>spring-custom-label</module>
     </modules>
     <packaging>pom</packaging>
 

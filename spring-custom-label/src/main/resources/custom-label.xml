@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:custom="http://dubbo.apache.org/schema/custom"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+       http://dubbo.apache.org/schema/custom
+       http://dubbo.apache.org/schema/custom/custom.xsd">
+
+    <custom:person id="person" name="测试" age="22"/>
+
+    <custom:hello id="hello" name="自定义标签"/>
+</beans>
