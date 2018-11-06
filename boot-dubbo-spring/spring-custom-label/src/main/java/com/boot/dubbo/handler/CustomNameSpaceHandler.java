@@ -1,5 +1,8 @@
-package com.boot.dubbo;
+package com.boot.dubbo.handler;
 
+import com.boot.dubbo.Hello;
+import com.boot.dubbo.parser.HelloBeanDefinitionParser;
+import com.boot.dubbo.parser.PersonBeanDefinitionParser;
 import org.springframework.beans.factory.xml.NamespaceHandlerSupport;
 
 /**

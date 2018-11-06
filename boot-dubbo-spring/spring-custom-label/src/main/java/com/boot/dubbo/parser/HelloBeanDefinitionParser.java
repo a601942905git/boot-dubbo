@@ -1,4 +1,4 @@
-package com.boot.dubbo;
+package com.boot.dubbo.parser;
 
 import org.springframework.beans.factory.config.BeanDefinition;
 import org.springframework.beans.factory.support.RootBeanDefinition;
@@ -7,7 +7,7 @@ import org.springframework.beans.factory.xml.ParserContext;
 import org.w3c.dom.Element;
 
 /**
- * com.boot.dubbo.HelloBeanDefinitionParser
+ * com.boot.dubbo.parser.HelloBeanDefinitionParser
  *
  * @author lipeng
  * @dateTime 2018/11/5 下午5:58

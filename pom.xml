@@ -14,8 +14,8 @@
         <module>boot-dubbo-generic-reference</module>
         <module>rpc-simple</module>
         <module>boot-dubbo-rest</module>
-        <module>bood-dubbo-spi</module>
-        <module>spring-custom-label</module>
+        <module>boot-dubbo-spi</module>
+        <module>boot-dubbo-spring</module>
     </modules>
     <packaging>pom</packaging>
 

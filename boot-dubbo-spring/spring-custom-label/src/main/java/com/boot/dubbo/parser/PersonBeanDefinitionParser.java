@@ -1,12 +1,13 @@
-package com.boot.dubbo;
+package com.boot.dubbo.parser;
 
+import com.boot.dubbo.Person;
 import org.springframework.beans.factory.support.BeanDefinitionBuilder;
 import org.springframework.beans.factory.xml.AbstractSingleBeanDefinitionParser;
 import org.springframework.util.StringUtils;
 import org.w3c.dom.Element;
 
 /**
- * com.boot.dubbo.PersonBeanDefinitionParser
+ * com.boot.dubbo.parser.PersonBeanDefinitionParser
  *
  * @author lipeng
  * @dateTime 2018/11/5 下午5:12
