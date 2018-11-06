@@ -41,10 +41,10 @@ SpringBoot结合Dubbo的学习示例
         |- com
             |- boot
                 |- dubbo
-                    |- context           上下文信息示例
-                    |- validation        参数验证示例
-                    |- async             异步调用示例
-                    |- callback          参数回调示例（服务器端调用客户端）
+                    |- context          上下文信息示例
+                    |- validation       参数验证示例
+                    |- async            异步调用示例
+                    |- callback         参数回调示例（服务器端调用客户端）
                     |- event            事件通知示例（客户端调用服务端方法前、后、异常处理）
                     |- mock             本地伪装示例
                     |- stub             本地存根示例
@@ -52,7 +52,8 @@ SpringBoot结合Dubbo的学习示例
                    
     |- boot-dubbo-rest                  实现rest调用
     |- boot-dubbo-spi                   实现基于java的SPI
-    |- spring-custom-label              基于spring实现自定义标签
+    |- boot-dubbo-spring                学习spring特性
+        |- spring-custom-label          spring自定义标签
     
 ```
 
