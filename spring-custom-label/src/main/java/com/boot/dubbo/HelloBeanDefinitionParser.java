@@ -1,8 +1,9 @@
 package com.boot.dubbo;
 
-import org.springframework.beans.factory.support.BeanDefinitionBuilder;
-import org.springframework.beans.factory.xml.AbstractSingleBeanDefinitionParser;
-import org.springframework.util.StringUtils;
+import org.springframework.beans.factory.config.BeanDefinition;
+import org.springframework.beans.factory.support.RootBeanDefinition;
+import org.springframework.beans.factory.xml.BeanDefinitionParser;
+import org.springframework.beans.factory.xml.ParserContext;
 import org.w3c.dom.Element;
 
 /**
@@ -11,24 +12,33 @@ import org.w3c.dom.Element;
  * @author lipeng
  * @dateTime 2018/11/5 下午5:58
  */
-public class HelloBeanDefinitionParser extends AbstractSingleBeanDefinitionParser {
+public class HelloBeanDefinitionParser implements BeanDefinitionParser {
 
-    @Override
-    protected Class<?> getBeanClass(Element element) {
-        return Hello.class;
+    private final Class<?> beanClass;
+
+    public HelloBeanDefinitionParser(Class<?> beanClass) {
+        this.beanClass = beanClass;
     }
 
     @Override
-    protected void doParse(Element element, BeanDefinitionBuilder bean) {
+    public BeanDefinition parse(Element element, ParserContext parserContext) {
+        return parse(element, parserContext, beanClass);
+    }
+
+    private BeanDefinition parse(Element element, ParserContext parserContext, Class<?> beanClass) {
+        RootBeanDefinition beanDefinition = new RootBeanDefinition();
+        beanDefinition.setBeanClass(beanClass);
+        beanDefinition.setLazyInit(false);
+
         String id = element.getAttribute("id");
         String name = element.getAttribute("name");
 
-        if (StringUtils.hasText(id)) {
-            bean.addPropertyValue("id", id);
-        }
+        beanDefinition.getPropertyValues().addPropertyValue("id", id);
+        beanDefinition.getPropertyValues().addPropertyValue("name", name);
 
-        if (StringUtils.hasText(name)) {
-            bean.addPropertyValue("name", name);
-        }
+        // 注册bean
+        parserContext.getRegistry().registerBeanDefinition(id, beanDefinition);
+
+        return beanDefinition;
     }
 }

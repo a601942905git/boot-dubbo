@@ -13,6 +13,6 @@ public class CustomNameSpaceHandler extends NamespaceHandlerSupport {
     @Override
     public void init() {
         registerBeanDefinitionParser("person", new PersonBeanDefinitionParser());
-        registerBeanDefinitionParser("hello", new HelloBeanDefinitionParser());
+        registerBeanDefinitionParser("hello", new HelloBeanDefinitionParser(Hello.class));
     }
 }
