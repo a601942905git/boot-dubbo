@@ -16,4 +16,5 @@
             <!--<dubbo:argument type="com.demo.CallbackListener" callback="true" />-->
         </dubbo:method>
     </dubbo:service>
+
 </beans>

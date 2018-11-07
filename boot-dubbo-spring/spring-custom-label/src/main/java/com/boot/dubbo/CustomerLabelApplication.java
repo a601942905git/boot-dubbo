@@ -32,5 +32,6 @@ public class CustomerLabelApplication {
 
         Hello hello = (Hello) applicationContext.getBean("hello");
         System.out.println(hello.hello());
+
     }
 }
